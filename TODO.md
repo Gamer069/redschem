@@ -13,7 +13,7 @@
 - [x] make it more error prone
 - [x] listen for message events such as messageCreate so you don't have to restart the whole bot to add a schem
 - [x] better table structure
-- [ ] setup git
+- [x] setup git
 - [ ] add search to frontend
 - [ ] fix frontend styling so its VERY good
 - [ ] add different themes in frontend so its not always just catppuccin mocha
