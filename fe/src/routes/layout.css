@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-*: initial;
+    --color-rosewater: #f530dc;
+    --color-flamingo: #f2cdcd;
+    --color-pink: #f5c2e7;
+    --color-mauve: #cba6f7;
+    --color-red: #f38ba8;
+    --color-maroon: #eba0ac;
+    --color-peach: #fab387;
+    --color-yellow: #f9e2af;
+    --color-green: #a6e3a1;
+    --color-teal: #94e2d5;
+    --color-sky: #89dceb;
+    --color-sappphire: #74c7ec;
+    --color-blue: #89b4fa;
+    --color-lavender: #b4befe;
+    --color-text: #cdd6f4;
+    --color-subtext1: #bac2de;
+    --color-subtext0: #a6adc8;
+    --color-overlay2: #9399b2;
+    --color-overlay1: #7f849c;
+    --color-overlay0: #6c7086;
+    --color-surface2: #585b70;
+    --color-surface1: #585b70;
+    --color-surface0: #313244;
+    --color-base: #1e1e2e;
+    --color-mantle: #181825;
+    --color-crust: #11111b;
+}
+
+h1,pre,h2,h3,h4,h5,h6,p:not(button p),b,i,code,label,input,a {
+	color: #cdd6f4;
+}
+
+.square > p {
+    transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+	color: #cdd6f4;
+}
+
+.menu > * {
+	width: 50%;
+}
+
+a {
+	color: #89b4fa;
+}
+
+a:hover {
+	color: #cba6f7;
+}
+
+input {
+	background: #313244;
+}
+
+h5 {
+	font-size: 0.83em;
+}
+
+/* stackoverflow ftw: https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+}

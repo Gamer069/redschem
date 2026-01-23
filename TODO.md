@@ -1,0 +1,30 @@
+TODOS:
+    - [x] simple foundation
+    - [x] header parsing
+    - [x] database management
+    - [x] multiple files
+    - [x] get rid of asyncio
+    - [x] admin commands (resync)
+    - [x] make a frontend
+    - [x] manual refresh command
+    - [x] update this todo list as i implement features
+    - [x] add lock to prevent multiple syncs running at the same time
+    - [x] make it more error prone
+    - [x] listen for message events such as messageCreate so you don't have to restart the whole bot to add a schem
+    - [x] better table structure
+    - [ ] setup git
+    - [ ] add search to frontend
+    - [ ] fix frontend styling so its VERY good
+    - [ ] add different themes in frontend so its not always just catppuccin mocha
+    - [ ] somehow deal with the extra data in <Schematic/> properly - if it's too long then the tile will be like 50km long and we dont want that - maybe make it scrollable and open up like a <code> style thing so it doesn't take up much space?
+    - [ ] move 16 segment display to separate category and subcategory in bot testing ground (just for testing)
+    - [ ] add literally all schematics just to see if it will work in prod
+    - [ ] more spacing between rows in the schematic component in frontend
+    - [ ] drop db/dont duplicate items
+    - [ ] nicer code
+    - [ ] good logging
+    - [ ] docs (maybe later)
+    - [ ] more comments
+    - [ ] rate limiting
+    - [ ] error handling for invalid headers
+    - [ ] get a response from the one, AND ONLY, @mattbatwings on lrs discord
