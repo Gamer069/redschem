@@ -4,6 +4,8 @@
 	export let number: boolean = false;
 	export let name: string = "";
 	export let value: number | string = 0;
+    export let extra: string = "";
+    export let extraInput: string = "";
 	export let increment: () => void = () => {};
 	export let decrement: () => void = () => {};
 	export let onInput: (val: number | string) => void = (val: number | string) => {};
@@ -23,14 +25,14 @@
 	};
 </script>
 
-<div class="flex items-center gap-2">
+<div class={`flex items-center gap-2 ${extra}`}>
 	{#if number}
 		<Button text="-" onClick={handleDecrement} />
 		<input
 			type="number"
 			inputmode="numeric"
 			pattern="[0-9]*"
-			class="w-16 text-center border rounded px-2 py-1 appearance-none no-spin"
+			class={`w-16 text-center border rounded px-2 py-1 appearance-none no-spin ${extraInput}`}
 			bind:value
 			on:input={handleInput}
 		/>
@@ -38,7 +40,7 @@
 	{:else}
 		<input
 			type="text"
-			class="border rounded px-2 py-1"
+			class={`border rounded px-2 py-1 ${extraInput}`}
 			bind:value
 			on:input={handleInput}
 		/>

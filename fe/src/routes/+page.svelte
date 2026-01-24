@@ -3,7 +3,7 @@
     import { type Category, categories } from "$lib/cat";
 
     const gotoCat = (category: Category) => {
-        goto("/" + category);
+        goto("/schematics/" + category);
     }
 </script>
 

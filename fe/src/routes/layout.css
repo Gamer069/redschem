@@ -30,6 +30,12 @@
     --color-crust: #11111b;
 }
 
+@layer base {
+    code, pre, kbd, samp {
+        @apply font-mono;
+    }
+}
+
 h1,pre,h2,h3,h4,h5,h6,p:not(button p),b,i,code,label,input,a {
 	color: #cdd6f4;
 }

@@ -14,10 +14,11 @@
 - [x] listen for message events such as messageCreate so you don't have to restart the whole bot to add a schem
 - [x] better table structure
 - [x] setup git
+- [x] somehow deal with the extra data in \<Schematic\/> properly - if it's too long then the tile will be like 50km long and we dont want that - maybe make it scrollable and open up like a \<code\> style thing so it doesn't take up much space?
+- [x] good 404 page
 - [ ] add search to frontend
 - [ ] fix frontend styling so its VERY good
 - [ ] add different themes in frontend so its not always just catppuccin mocha
-- [ ] somehow deal with the extra data in \<Schematic\/> properly - if it's too long then the tile will be like 50km long and we dont want that - maybe make it scrollable and open up like a \<code\> style thing so it doesn't take up much space?
 - [ ] move 16 segment display to separate category and subcategory in bot testing ground (just for testing)
 - [ ] add literally all schematics just to see if it will work in prod
 - [ ] more spacing between rows in the schematic component in frontend

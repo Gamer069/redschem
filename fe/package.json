@@ -44,7 +44,8 @@
   "dependencies": {
     "pako": "^2.1.0",
     "postgres": "^3.4.7",
-    "shittier": "^0.1.2"
+    "shittier": "^0.1.2",
+    "trie-search": "^2.2.1"
   },
   "trustedDependencies": [
     "core-js"

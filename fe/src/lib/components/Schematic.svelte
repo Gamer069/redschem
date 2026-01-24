@@ -89,7 +89,9 @@
                 <Button onClick={downloadExtraData} text="Download Data"/>
             </div>
             {#if showExtraDataState}
-                <pre>{extraData}</pre>
+                <pre class="overflow-auto rounded-xl bg-surface0 p-2 text-sm text-text font-mono max-h-[calc(8*1.5rem)]">
+<code>{extraData}</code>
+                </pre>
             {/if}
         {/if}
 

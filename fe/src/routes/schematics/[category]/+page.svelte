@@ -6,7 +6,7 @@
     export let data: PageProps;
 
     const gotoSubcat = (subcategory: Subcategory) => {
-        goto("/" + data.category + "/" + subcategory);
+        goto("/schematics/" + data.category + "/" + subcategory);
     }
 
     const newSubcategories = subcategories[data.category];
