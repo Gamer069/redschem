@@ -23,7 +23,7 @@ export const load = async ({ params }) => {
         return {
             schematics: result,
             category: params.category,
-            subcategory: params.subcategory
+            subcategory: params.subcategory,
         };
     } catch (err) {
         console.error("Error querying schematics: ", err);

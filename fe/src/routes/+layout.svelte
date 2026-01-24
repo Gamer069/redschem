@@ -9,6 +9,6 @@
 
 <title>Logical Redstone Schematics</title>
 
-<div class="min-w-screen min-h-screen bg-mantle">
+<div class="min-w-screen min-h-screen bg-ctp-mantle">
     {@render children()}
 </div>

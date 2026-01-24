@@ -1,5 +1,4 @@
 <script lang="ts">
-    import type { Schematic } from "$lib/cat";
     import pako from "pako";
 	import Button from "./Button.svelte";
 
@@ -24,19 +23,20 @@
 
 
     // svelte-ignore state_referenced_locally
-    const { bytes: imageBytes, dataUrl: image } = decodeGzipBase64Image(schematic.image);
+    const { bytes: imageBytes, dataUrl: image } = $derived(decodeGzipBase64Image(schematic.image));
 
     // svelte-ignore state_referenced_locally
-    const extraData =
+    const extraData = $derived(
         schematic.extra_data !== null
         ? new TextDecoder()
             .decode(decodeGzipBase64(schematic.extra_data))
-        : null;
+        : null
+    );
 
     let showExtraDataState = $state(false);
 
     // svelte-ignore state_referenced_locally
-    const schem = decodeGzipBase64(schematic.schem);
+    const schem = $derived(decodeGzipBase64(schematic.schem));
 
     const downloadFile = (data: Uint8Array | string, filename: string, mimeType = "text/plain") => {
         const blob = new Blob([data], { type: mimeType });
@@ -70,7 +70,7 @@
     };
 </script>
 
-<div class="schematic bg-base rounded-xl border-text border w-90 p-4 flex flex-col min-h-[450px] transition-transform duration-300 hover:scale-102 ease-[cubic-bezier(0.85, 0.05, 0.15, 0.95)]">
+<div class="schematic bg-ctp-base rounded-xl border-ctp-text border w-90 p-4 flex flex-col min-h-[450px] transition-transform duration-300 hover:scale-102 ease-[cubic-bezier(0.85, 0.05, 0.15, 0.95)]">
     <div class="flex-shrink-0">
         <p>{schematic.title}</p>
         <p class="text-sm">By: {schematic.authors}</p>
@@ -89,7 +89,7 @@
                 <Button onClick={downloadExtraData} text="Download Data"/>
             </div>
             {#if showExtraDataState}
-                <pre class="overflow-auto rounded-xl bg-surface0 p-2 text-sm text-text font-mono max-h-[calc(8*1.5rem)]">
+                <pre class="overflow-auto rounded-xl bg-ctp-surface0 p-2 text-sm text-text font-mono max-h-[calc(8*1.5rem)]">
 <code>{extraData}</code>
                 </pre>
             {/if}
