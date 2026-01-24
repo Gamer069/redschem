@@ -53,7 +53,7 @@
 		onmouseenter={(_e) => tooltipShown = true}
 		onmouseleave={(_e) => tooltipShown = false}
 		disabled={disabled}
-		class={`transform ${transition ? 'transition-transform hover:scale-90 duration-300' : ''} ease-[cubic-bezier(0.85, 0.05, 0.15, 0.95)] rounded-xl disabled:pointer-events-auto disabled:cursor-not-allowed px-4 py-2 bg-[#74c7ec] disabled:bg-[#a6adc8] hover:bg-[#89b4fa] focus:bg-[#89dceb] ${extraBtn}`}
+		class={`transform ${transition ? 'transition-transform hover:scale-94 duration-300' : ''} ease-[cubic-bezier(0.85, 0.05, 0.15, 0.95)] rounded-xl disabled:pointer-events-auto disabled:cursor-not-allowed px-4 py-2 bg-[#74c7ec] disabled:bg-[#a6adc8] hover:bg-[#89b4fa] focus:bg-[#89dceb] ${extraBtn}`}
         style="min-width: {minWidth};"
 	>
 		{text}

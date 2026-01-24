@@ -66,7 +66,7 @@ async def resync(ctx: discord.Interaction):
 
     await db.drop()
     await db.full_sync(bot)
-    await ctx.response.send_message("Performed full resync.")
+    await ctx.followup.send("Performed full resync.", ephemeral=True)
 
 
 @bot.tree.command(name="ping", description="ping bot")

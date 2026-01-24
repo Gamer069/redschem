@@ -70,10 +70,10 @@
     };
 </script>
 
-<div class="schematic bg-base rounded-xl border-text border w-90 p-4 flex flex-col min-h-[450px]">
+<div class="schematic bg-base rounded-xl border-text border w-90 p-4 flex flex-col min-h-[450px] transition-transform duration-300 hover:scale-102 ease-[cubic-bezier(0.85, 0.05, 0.15, 0.95)]">
     <div class="flex-shrink-0">
         <p>{schematic.title}</p>
-        <p>By: {schematic.authors}</p>
+        <p class="text-sm">By: {schematic.authors}</p>
     </div>
 
     <div class="flex-shrink-0 flex items-center justify-center my-2">
