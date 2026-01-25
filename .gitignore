@@ -3,3 +3,8 @@
 .env.local
 .env.dev
 .env.dev.local
+
+be/__pycache__
+be/logs
+be/src/__pycache__
+be/src/redschem.egg_info

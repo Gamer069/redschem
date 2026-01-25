@@ -85,7 +85,7 @@ async def parse(bot: discord.Client, msg: discord.Message):
 
 
 def _debug_message(msg: discord.Message):
-    logger.info(f"\n=== Message {msg.id} ===")
+    logger.info(f"Syncing message {msg.id}...")
 
 
 def _parse_header(contents: str):
@@ -158,6 +158,9 @@ async def full_sync(bot: discord.Client):
 
     for i in config.CHANNELS:
         channel = discord.utils.get(guild.text_channels, name=i)
+
+        if channel is None:
+            logger.error("Channel {} does not exist, skipping...")
 
         async for msg in channel.history(limit=None):
             if msg.author.bot:

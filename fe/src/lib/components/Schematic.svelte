@@ -76,7 +76,7 @@
         <p class="text-sm">By: {schematic.authors}</p>
     </div>
 
-    <div class="flex-shrink-0 flex items-center justify-center my-2">
+    <div class="flex-shrink-0 flex items-end justify-center my-2 h-55">
         <img src={image} class="scale-120" alt={`Schematic for ${schematic.title} by ${schematic.authors}`}/>
     </div>
 

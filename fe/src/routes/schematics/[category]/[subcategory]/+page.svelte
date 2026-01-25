@@ -16,12 +16,16 @@
     let search = $state("");
     
     // Create a stable map of schematics by id
-    const schematicsMap = new Map(
+    const schematicsMap = $derived(new Map(
         data.schematics.map(s => [s.id, s])
-    );
+    ));
     
     // Store only the keys, not the objects themselves
-    let resultKeys: string[] = $state(data.schematics.map(s => s.id));
+    let resultKeys: string[] = $state([]);
+
+    $effect(() => {
+        resultKeys = data.schematics.map(s => s.id);
+    });
     
     // Derive the actual results from the stable map
     let results = $derived(resultKeys.map(key => schematicsMap.get(key)!));
