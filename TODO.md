@@ -19,8 +19,8 @@
 - [x] add lock to prevent multiple syncs running at the same time
 - [x] listen for message events such as messageCreate so you don't have to restart the whole bot to add a schem
 - [x] better table structure
-- [ ] drop db/dont duplicate items
-- [ ] good logging (see https://github.com/Delgan/loguru)
+- [x] drop db/dont duplicate items
+- [x] good logging (see https://github.com/Delgan/loguru)
 - [ ] error handling for invalid headers
 - [ ] docs (maybe later)
 - [ ] rate limiting

@@ -1,0 +1,7 @@
+pyproject.toml
+requirements.txt
+src/redschem.egg-info/PKG-INFO
+src/redschem.egg-info/SOURCES.txt
+src/redschem.egg-info/dependency_links.txt
+src/redschem.egg-info/requires.txt
+src/redschem.egg-info/top_level.txt

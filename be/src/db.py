@@ -7,6 +7,7 @@ import base64
 import json
 
 from typing import Optional
+from loguru import logger
 
 import re
 import os
@@ -84,7 +85,7 @@ async def parse(bot: discord.Client, msg: discord.Message):
 
 
 def _debug_message(msg: discord.Message):
-    print(f"\n=== Message {msg.id} ===")
+    logger.info(f"\n=== Message {msg.id} ===")
 
 
 def _parse_header(contents: str):
@@ -166,15 +167,23 @@ async def full_sync(bot: discord.Client):
                 schem = await parse(bot, msg)
                 await schem.add_to_db(conn)
             except ImageNotFoundError as e:
-                print(f"WARN: skipping message {msg.id} because image could not be processed: {e}")
+                logger.warning(
+                    "skipping msg {} because image couldn't be processed: {}",
+                    msg.id,
+                    e
+                )
             except Exception as e:
-                print(f"ERR: an unexpected error occurred when processing message {msg.id}: {e}")
+                logger.error(
+                    "an unexpected error occurred when processing msg {}: {}",
+                    msg.id,
+                    e
+                )
 
 
 def get_message_contents(msg) -> str:
     """
-    Returns the content of a message.
-    Prefers the message's own content; falls back to the first snapshot if none exists.
+    Returns the content of a msg.
+    Prefers the msg's own content;falls back to the snapshot if none exists.
     """
     if hasattr(msg, "content") and msg.content:
         return msg.content
@@ -187,7 +196,7 @@ def get_message_contents(msg) -> str:
 def get_message_attachments(msg) -> list[discord.Attachment]:
     """
     Returns the attachments of a message.
-    Prefers the message's own attachments; falls back to the first snapshot if none exist.
+    Prefers the msg's own attachments;falls back to the snapshot if none exist.
     """
     if hasattr(msg, "attachments") and msg.attachments:
         return msg.attachments
