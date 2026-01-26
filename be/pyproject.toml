@@ -12,3 +12,6 @@ dependencies = {file = ["requirements.txt"]}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pylsp.plugins.pycodestyle]
+ignore = ["W191","E126"]

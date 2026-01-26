@@ -59,7 +59,7 @@
     };
 </script>
 
-<div class="relative min-h-screen p-4">
+<div class="relative min-h-screen p-3">
     <Input bind:value={search} extra="rounded-lg float-right" extraInput="bg-ctp-text" onInput={doSearch}></Input>
     <br>
     <br>
