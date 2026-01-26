@@ -1,39 +1,31 @@
+import subcategories from "../../../shared/categories.json";
+
+export { subcategories };
+export const categories = Object.keys(subcategories) as (keyof typeof subcategories)[];
+
 import type { InferSelectModel } from "drizzle-orm";
 import type { schematics } from "./server/db/schema";
 
-type Category = "arithmetics" | "combinational" | "sequential blocks";
-export const categories: readonly Category[] = ["arithmetics", "combinational", "sequential blocks"] as const;
+/** Single source of truth */
+/** Derived types */
+export type Category = keyof typeof subcategories;
 
-type Subcategory = "adders" | "multipliers" | "dividers" | "squarerooters" | "encoders" | "decoders" | "priority-circuits" | "other-comb" | "latches-flipflops" | "counters" | "registers" | "shift-registers" | "accumulators";
-export const subcategories: Readonly<Record<Category, Subcategory[]>> = {
-    "arithmetics": [
-        "adders", 
-        "multipliers", 
-        "dividers",
-        "squarerooters",
-    ] as const,
-    "combinational": [
-        "encoders",
-        "decoders",
-        "priority-circuits",
-        "other-comb",
-    ] as const,
-    "sequential blocks": [
-        "latches-flipflops",
-        "counters",
-        "registers",
-        "shift-registers",
-        "accumulators",
-    ] as const,
-} as const;
+export type Subcategory =
+	(typeof subcategories)[Category][number];
 
+/** Drizzle type */
 export type Schematic = InferSelectModel<typeof schematics>;
- 
-export const isCategory = (value: string): value is Category => {
-    return (categories as readonly string[]).includes(value)
-}
 
-export const isSubcategory = (category: string, value: string): value is Subcategory => {
-    if (!isCategory(category)) return false;
-    return subcategories[category].includes(value as Subcategory);
-}
+/** Type guards */
+export const isCategory = (value: string): value is Category => {
+	return value in subcategories;
+};
+
+export const isSubcategory = (
+	category: string,
+	value: string
+): value is Subcategory => {
+	if (!isCategory(category)) return false;
+	return (subcategories[category] as readonly string[]).includes(value);
+};
+

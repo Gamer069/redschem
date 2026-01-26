@@ -1,6 +1,6 @@
 from dataclasses import dataclass, fields
 from typing import Optional
-from warnings import warn
+from loguru import logger
 
 
 @dataclass
@@ -34,25 +34,28 @@ class Header:
                 if last_field == "authors":
                     kvs.setdefault("authors", []).extend([a.strip() for a in line.split(",")])
                 else:
-                    kvs[last_field] += " " + line
+                    kvs[last_field] = ((kvs.get(last_field) or "") + " " + line).strip()
+
                 continue
 
             k, v = line.split(":", 1)
             k = k.strip().lower()
             v = v.strip()
 
-            # map to dataclass field, including author->authors
-            field_name = key_map.get(k) or valid_fields.get(k)
-            if field_name is None:
-                warn("Invalid key in schematic header.")
+            keys = [key_map.get(part.strip(), valid_fields.get(part.strip())) for part in k.split("/")]
+            keys = [f for f in keys if f]
+
+            if not keys:
+                logger.warning("Invalid key in schematic header: {}", k)
                 continue
 
-            if field_name == "authors":
-                kvs.setdefault("authors", []).extend([a.strip() for a in v.split(",")])
-            else:
-                kvs[field_name] = v
+            for field_name in keys:
+                if field_name == "authors":
+                    kvs.setdefault("authors", []).extend([a.strip() for a in v.split("&")])
+                else:
+                    kvs[field_name] = v
 
-            last_field = field_name
+            last_field = keys[0]
 
         # fill missing fields
         for f in valid_fields.values():

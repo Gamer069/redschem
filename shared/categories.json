@@ -1,0 +1,52 @@
+{
+    "arithmetics": [
+        "adders",
+        "multipliers",
+        "dividers",
+        "squarerooters"
+    ],
+    "combinational": [
+        "encoders",
+        "decoders",
+        "priority-circuits",
+        "other-comb"
+    ],
+    "sequential blocks": [
+        "latches-flipflops",
+        "counters",
+        "registers",
+        "shift-registers",
+        "accumulators"
+    ],
+    "displays": [
+        "display-modules",
+        "number-displays",
+        "character-displays",
+        "pixel-displays",
+        "other-displays"
+    ],
+    "hex": [
+        "hex-adders",
+        "hex-registers",
+        "other-hex"
+    ],
+    "conversion": [
+        "binary-to-hex",
+        "hex-to-binary",
+        "binary-to-bcd",
+        "bcd-to-binary",
+        "redcoders"
+    ],
+    "wiring": [
+        "transmission",
+        "flipping-swapping",
+        "crosswire"
+    ],
+    "miscellaneous": [
+        "cpu-components",
+        "randomizers",
+        "sorters",
+        "user-interfaces"
+    ]
+}
+

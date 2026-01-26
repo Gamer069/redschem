@@ -60,7 +60,7 @@ async def drop():
 
 
 async def parse(bot: discord.Client, msg: discord.Message):
-    _debug_message(msg)
+    logger.info("Syncing message {}...", msg.id)
 
     contents = get_message_contents(msg)
     header = _parse_header(contents)
@@ -82,10 +82,6 @@ async def parse(bot: discord.Client, msg: discord.Message):
         image_data,
         extra_data
     )
-
-
-def _debug_message(msg: discord.Message):
-    logger.info(f"Syncing message {msg.id}...")
 
 
 def _parse_header(contents: str):
@@ -157,6 +153,7 @@ async def full_sync(bot: discord.Client):
     guild = bot.get_guild(config.GUILD_ID)
 
     for i in config.CHANNELS:
+        logger.info("Syncing channel {}...", i)
         channel = discord.utils.get(guild.text_channels, name=i)
 
         if channel is None:
