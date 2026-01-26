@@ -2,12 +2,6 @@
 
 @import "@catppuccin/tailwindcss/mocha.css";
 
-@layer base {
-    code, pre, kbd, samp {
-        @apply font-mono;
-    }
-}
-
 @font-face {
     font-family: "Monocraft";
     src: url("/Monocraft.ttf") format("truetype");
@@ -15,6 +9,7 @@
     font-style: normal;
     font-display: swap;
 }
+
 
 h1,pre,h2,h3,h4,h5,h6,p:not(button p),b,i,code,label,input,a {
 	color: #cdd6f4;
@@ -24,9 +19,10 @@ h1,pre,h2,h3,h4,h5,h6,p,span,button,b,i,code,label,input,a {
     font-family: "Monocraft", sans-serif;
 }
 
+
 .square > p {
-    font-family: "Monocraft", sans-serif;
-    transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+	font-family: "Monocraft", sans-serif;
+	transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
 	color: #cdd6f4;
 }
 
@@ -48,6 +44,27 @@ input {
 
 h5 {
 	font-size: 0.83em;
+}
+
+kbd {
+  @apply min-h-[1.875rem]         /* min-h-7.5 */
+	 inline-flex
+	 justify-center
+	 items-center
+	 py-1
+	 px-1.5
+	 bg-ctp-lavender
+	 border
+	 border-ctp-mantle
+	 font-mono
+	 text-sm
+	 text-ctp-text
+	 rounded-md
+	 shadow-[0px_2px_0px_0px_rgba(0,0,0,0.08)]
+	 dark:bg-ctp-base
+	 dark:border-ctp-mauve
+	 dark:text-ctp-text
+	 dark:shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)];
 }
 
 /* stackoverflow ftw: https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box */

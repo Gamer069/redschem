@@ -1,15 +1,42 @@
 <script lang="ts">
 	import Button from "./Button.svelte";
 
-	export let number: boolean = false;
-	export let name: string = "";
-	export let value: number | string = 0;
-    export let extra: string = "";
-    export let extraInput: string = "";
-	export let increment: () => void = () => {};
-	export let decrement: () => void = () => {};
-	export let onInput: (val: number | string) => void = (val: number | string) => {};
-	
+    let {
+        number = false,
+        name = "",
+        value = $bindable(),
+        extra = "",
+        extraInput = "",
+		key = "",
+        increment = () => {},
+        decrement = () => {},
+        onInput = (val: number | string) => {}
+    } = $props<{
+        number?: boolean;
+        name?: string;
+        value?: number | string;
+        extra?: string;
+        extraInput?: string;
+		key?: string;
+        increment?: () => void;
+        decrement?: () => void;
+        onInput?: (val: number | string) => void;
+    }>();
+
+	let htmlInput = $state<HTMLInputElement>();
+
+	export const focus = () => {
+		htmlInput?.focus();
+	};
+
+	export const unfocus = () => {
+		htmlInput?.blur();
+	};
+
+	export const focused = () => {
+		return htmlInput === document.activeElement;
+	}
+
 	const handleInput = (e: Event) => {
 		const target = e.target as HTMLInputElement;
 		value = number ? parseInt(target.value) : target.value; 
@@ -33,17 +60,28 @@
 			inputmode="numeric"
 			pattern="[0-9]*"
 			class={`w-16 text-center border rounded px-2 py-1 appearance-none no-spin ${extraInput}`}
+			bind:this={htmlInput}
 			bind:value
-			on:input={handleInput}
+			oninput={handleInput}
 		/>
+
+		{#if key}
+			<kbd class="absolute right-2 -translate-y-1/2 pointer-events-none">{key}</kbd>
+		{/if}
+
 		<Button text="+" onClick={handleIncrement} />
 	{:else}
 		<input
 			type="text"
 			class={`border rounded px-2 py-1 ${extraInput}`}
+			bind:this={htmlInput}
 			bind:value
-			on:input={handleInput}
+			oninput={handleInput}
 		/>
+
+		{#if key}
+			<kbd class="absolute right-1 -translate-x-3 pointer-events-none">{key}</kbd>
+		{/if}
 	{/if}
 
 	<input type="hidden" name={name} value={value}/>
