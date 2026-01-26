@@ -20,3 +20,6 @@ Contributions are welcome.
 
 ### TODOs
 See [TODO.md](./TODO.md) for the current project roadmap and planned features.
+
+### DOCS
+See [DOCS.md](./DOCS.md) for the instructions on how to run it.

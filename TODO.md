@@ -3,6 +3,7 @@
 - [x] update this todo list as i implement features
 - [x] setup git
 - [x] more comments 
+- [x] docs (maybe later)
 - [ ] nicer code
 - [ ] get a response from the one, AND ONLY, @mattbatwings on lrs discord
 
@@ -22,7 +23,6 @@
 - [x] drop db/dont duplicate items
 - [x] good logging (see https://github.com/Delgan/loguru)
 - [ ] error handling for invalid headers
-- [ ] docs (maybe later)
 - [ ] rate limiting
 
 

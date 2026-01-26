@@ -1,2 +1,3 @@
 cd be
-python bot.py
+source venv/bin/activate
+python .
