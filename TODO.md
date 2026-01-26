@@ -46,7 +46,7 @@
 - [ ] add search filters
 
 ## BOT TESTING GROUND TODOS
-- [ ] move 16 segment display to separate category and subcategory in bot testing ground (just for testing)
-- [ ] add literally all schematics just to see if it will work in prod in bot testing ground
+- [x] move 16 segment display to separate category and subcategory in bot testing ground (just for testing)
+- [x] add literally all schematics just to see if it will work in prod in bot testing ground
 - [ ] load testing with concurrent users
 - [ ] test database migration workflow
