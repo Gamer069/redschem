@@ -41,6 +41,7 @@
 ### SEARCH
 
 - [x] add search
+- [x] make search keybind
 - [ ] make search faster (when input's length === 1 and that one character changes/gets deleted to not cause chaos and re-render THE ENTIRE THING)
 - [ ] add search filters
 
