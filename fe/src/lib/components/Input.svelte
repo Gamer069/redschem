@@ -66,7 +66,7 @@
 		/>
 
 		{#if key}
-			<kbd class="absolute right-2 -translate-y-1/2 pointer-events-none">{key}</kbd>
+			<kbd class="absolute right-0 -translate-x-3 pointer-events-none">{key}</kbd>
 		{/if}
 
 		<Button text="+" onClick={handleIncrement} />
@@ -80,7 +80,7 @@
 		/>
 
 		{#if key}
-			<kbd class="absolute right-1 -translate-x-3 pointer-events-none">{key}</kbd>
+			<kbd class="absolute right-0 -translate-x-3 pointer-events-none">{key}</kbd>
 		{/if}
 	{/if}
 

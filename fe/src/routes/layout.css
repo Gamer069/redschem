@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-
+@import "@savaryna/tailwindcss-material-symbols";
 @import "@catppuccin/tailwindcss/mocha.css";
 
 @font-face {
@@ -10,15 +10,15 @@
     font-display: swap;
 }
 
+h1,h2,h3,h4,h5,h6,p,pre,span,button,b,i,code,label,input,a {
+	&:not(.icon) {
+		font-family: "Monocraft", sans-serif;
+	}
+}
 
 h1,pre,h2,h3,h4,h5,h6,p:not(button p),b,i,code,label,input,a {
 	color: #cdd6f4;
 }
-
-h1,pre,h2,h3,h4,h5,h6,p,span,button,b,i,code,label,input,a {
-    font-family: "Monocraft", sans-serif;
-}
-
 
 .square > p {
 	font-family: "Monocraft", sans-serif;

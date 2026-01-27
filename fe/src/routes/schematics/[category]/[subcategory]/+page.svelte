@@ -6,6 +6,8 @@
 	import { goto } from '$app/navigation';
 	import { onDestroy, onMount } from 'svelte';
 	import Link from '$lib/components/Link.svelte';
+	import Button from '$lib/components/Button.svelte';
+	import { parseConfigFileTextToJson } from 'typescript';
 
     const { data } = $props<{ data: PageProps }>();
 
@@ -73,10 +75,26 @@
             worker.postMessage({ type: "search", payload: search });
         }
     };
+
+	const home = () => {
+		goto("/");
+	}
+
+	const back = () => {
+		// strip last /.*
+		goto(page.url.toString().replace(/\/[^/]*$/, ""));
+	};
 </script>
 
+
 <div class="relative min-h-screen p-3">
+	<div class="flex gap-4 float-left">
+		<Button onClick={back} icon text="arrow_back"/>
+		<Button onClick={home} icon text="home"/>
+	</div>
+
     <Input bind:this={searchInp} bind:value={search} extra="rounded-lg float-right" extraInput="bg-ctp-text" onInput={doSearch} key="/"></Input>
+    <br>
     <br>
     <br>
 
