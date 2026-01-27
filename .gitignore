@@ -8,3 +8,4 @@ be/__pycache__
 be/logs
 be/src/__pycache__
 be/src/redschem.egg_info
+be/.redschem_bot_initialized
