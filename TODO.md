@@ -42,7 +42,7 @@
 
 - [x] add search
 - [x] make search keybind
-- [ ] make search faster (when input's length === 1 and that one character changes/gets deleted to not cause chaos and re-render THE ENTIRE THING)
+- [x] make search faster (when input's length === 1 and that one character changes/gets deleted to not cause chaos and re-render THE ENTIRE THING) (it magically fixed itself so i marked it as solved)
 - [ ] add search filters
 
 ## BOT TESTING GROUND TODOS

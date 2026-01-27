@@ -23,7 +23,7 @@ async def identify_first_run(bot):
     config.CHANNELS = [sub for subs in subcategories.values() for sub in subs]
 
     if not os.path.exists(SYNC_FLAG):
-        logger.info("First run detected - performing initital sync...")
+        logger.info("First run detected - performing initial sync...")
         await db.full_sync(bot)
 
         with open(SYNC_FLAG, 'w') as f:

@@ -1,3 +1,4 @@
+import asyncio
 import asyncpg
 import discord
 
@@ -20,6 +21,8 @@ import config
 from schem import Header, Schem
 
 conn = None
+
+sync_lock = asyncio.Lock()
 
 
 class ImageNotFoundError(Exception):
@@ -147,7 +150,20 @@ async def _process_embedded_image(
 		raise ImageNotFoundError(f"Downloading image from {url} failed: {e}")
 
 
-async def full_sync(bot: discord.Client):
+async def full_sync(bot: discord.Client, from_command: bool = False, ctx: discord.Interaction = None):
+	if sync_lock.locked():
+		if from_command:
+			await ctx.followup.send("A sync is already in progress, please wait...", ephemeral=True)
+		return
+
+	async with sync_lock:
+		await _full_sync_impl(bot)
+
+		if from_command:
+			await ctx.followup.send("Performed full resync.", ephemeral=True)
+
+
+async def _full_sync_impl(bot: discord.Client):
 	await drop()
 
 	guild = bot.get_guild(config.GUILD_ID)
@@ -176,9 +192,16 @@ async def full_sync(bot: discord.Client):
 		bar_format="{l_bar}{bar} {n}/{total}{postfix}",
 	)
 
+	prefix = "✔  Finished "
+	longest_channel_name = 0
+
 	for channel in channels:
 		if channel is None:
 			logger.warning("Channel #{} does not exist, skipping...", channel.name)
+
+		channel_name_len = len(channel.name)
+		if channel_name_len > longest_channel_name:
+			longest_channel_name = channel_name_len
 
 		pbar.set_postfix_str(f"{channel.name}")
 
@@ -205,11 +228,13 @@ async def full_sync(bot: discord.Client):
 					e
 				)
 
-		logger.info(f"✔  Finished #{channel.name}")
+		logger.info("{}#{}", prefix, channel.name)
 
 	pbar.close()
 
 	log.init_loguru()
+
+	logger.info("=" * (len(prefix) + longest_channel_name))
 
 
 def get_message_contents(msg) -> str:

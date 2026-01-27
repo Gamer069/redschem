@@ -86,9 +86,7 @@ def setup_commands(bot):
 	async def resync(ctx: discord.Interaction):
 		await ctx.response.defer(ephemeral=True)
 
-		await db.drop()
-		await db.full_sync(bot)
-		await ctx.followup.send("Performed full resync.", ephemeral=True)
+		await db.full_sync(bot, from_command=True, ctx=ctx)
 
 	@bot.tree.command(name="ping", description="ping bot")
 	async def ping(ctx: discord.Interaction):
