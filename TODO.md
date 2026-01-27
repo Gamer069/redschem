@@ -22,8 +22,8 @@
 - [x] better table structure
 - [x] drop db/dont duplicate items
 - [x] good logging (see https://github.com/Delgan/loguru)
+- [x] rate limiting
 - [ ] error handling for invalid headers
-- [ ] rate limiting
 
 
 ## FRONTEND
