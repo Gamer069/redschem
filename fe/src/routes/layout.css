@@ -2,12 +2,17 @@
 @import "@savaryna/tailwindcss-material-symbols";
 @import "@catppuccin/tailwindcss/mocha.css";
 
+@theme {
+	--breakpoint-lg: 1200px;  /* delays 2-column wrap */
+	--breakpoint-xl: 1600px;  /* delays 3-column wrap */
+}
+
 @font-face {
-    font-family: "Monocraft";
-    src: url("/Monocraft.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+	font-family: "Monocraft";
+	src: url("/Monocraft.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 }
 
 h1,h2,h3,h4,h5,h6,p,pre,span,button,b,i,code,label,input,a {
@@ -47,7 +52,7 @@ h5 {
 }
 
 kbd {
-  @apply min-h-[1.875rem]         /* min-h-7.5 */
+  @apply min-h-[1.875rem]		 /* min-h-7.5 */
 	 inline-flex
 	 justify-center
 	 items-center
@@ -70,11 +75,11 @@ kbd {
 /* stackoverflow ftw: https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+	/* display: none; <- Crashes Chrome on hover */
+	-webkit-appearance: none;
+	margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 input[type=number] {
-    -moz-appearance: textfield; /* Firefox */
+	-moz-appearance: textfield; /* Firefox */
 }

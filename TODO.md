@@ -33,10 +33,7 @@
 - [x] good 404 page
 - [x] more spacing between rows in the schematic component
 - [x] fix styling so it looks usable
-- [ ] fix frontend styling so it looks VERY good
-
-### MAYBE
-- [ ] admin dashboard..?
+- [x] fix frontend styling so it looks VERY good
 
 ### SEARCH
 
@@ -44,6 +41,10 @@
 - [x] make search keybind
 - [x] make search faster (when input's length === 1 and that one character changes/gets deleted to not cause chaos and re-render THE ENTIRE THING) (it magically fixed itself so i marked it as solved)
 - [ ] add search filters
+
+### MAYBE
+- [ ] admin dashboard..?
+
 
 ## BOT TESTING GROUND TODOS
 - [x] move 16 segment display to separate category and subcategory in bot testing ground (just for testing)

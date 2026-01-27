@@ -7,7 +7,6 @@
 	import { onDestroy, onMount } from 'svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import { parseConfigFileTextToJson } from 'typescript';
 
     const { data } = $props<{ data: PageProps }>();
 
@@ -108,7 +107,7 @@
             <p class="text-sm">Try <Link href={page.url} onclick={refreshRoute}>refreshing</Link> the page &ndash; new schematics may have been added!</p>
         </div>
     {:else}
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 p-4 mx-auto">
+		<div class="grid gap-4 p-4 mx-auto [grid-template-columns:repeat(auto-fit,minmax(380px,1fr))]">
             {#each results as schematic (schematic.id)}
                 <div class="schem-card min-w-0 mx-auto">
                     <Schematic schematic={schematic}/>
