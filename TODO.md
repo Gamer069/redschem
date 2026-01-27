@@ -23,7 +23,7 @@
 - [x] drop db/dont duplicate items
 - [x] good logging (see https://github.com/Delgan/loguru)
 - [x] rate limiting
-- [ ] error handling for invalid headers
+- [x] error handling for invalid headers
 
 
 ## FRONTEND
