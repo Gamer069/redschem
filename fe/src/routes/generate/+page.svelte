@@ -13,6 +13,8 @@
 	let values: Record<string, string> = $state({});
 	let generated = $state("");
 
+	const INVALID_VALUE = "<value not provided>" as const;
+
 	const upd = (field, val) => {
 		values[field.name] = val;
 		refresh();
@@ -21,27 +23,25 @@
 	const refresh = () => {
 		generated = "";
 
-		Object.entries(values).forEach(([k, v]) => {
-			const field = fields.filter(field => field.name === k)[0];
+		for (let field of fields) {
+			const value = values[field.name];
 
-			if (v.length !== 0) {
-				generated += map[k] ?? k[0].toUpperCase() + k.slice(1);
-
+			// Only use INVALID_VALUE if empty and required
+			if (!value || value.length === 0) {
+				if (!field.optional) {
+					generated += (map[field.name] ?? field.name[0].toUpperCase() + field.name.slice(1));
+					generated += ": ";
+					generated += INVALID_VALUE;
+					generated += "\n";
+				}
+			} else {
+				// If there *is* a value, output it normally
+				generated += (map[field.name] ?? field.name[0].toUpperCase() + field.name.slice(1));
 				generated += ": ";
-
-				generated += v;
-
-				generated += "\n";
-			} else if (!field.optional) {
-				generated += map[k] ?? k[0].toUpperCase() + k.slice(1);
-
-				generated += ": ";
-
-				generated += "<value not provided>";
-
+				generated += value;
 				generated += "\n";
 			}
-		});
+		}
 	}
 
 	const copy = () => {
