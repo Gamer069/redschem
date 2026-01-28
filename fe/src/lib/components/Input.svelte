@@ -64,7 +64,7 @@
 			type="number"
 			inputmode="numeric"
 			pattern="[0-9]*"
-			class={`w-16 text-center border rounded px-2 py-1 appearance-none no-spin ${extraInput}`}
+			class={`w-16 text-center border rounded-xl px-2 py-1 appearance-none no-spin ${extraInput}`}
 			bind:this={htmlInput}
 			bind:value
 			oninput={handleInput}
@@ -79,7 +79,7 @@
 		<p class={textClass}>{nameText}:</p>
 		<input
 			type="text"
-			class={`border rounded px-2 py-1 ${extraInput}`}
+			class={`border rounded-xl px-2 py-1 ${extraInput}`}
 			bind:this={htmlInput}
 			bind:value
 			oninput={handleInput}
