@@ -4,6 +4,8 @@
     let {
         number = false,
         name = "",
+		nameText = "",
+		textClass = "",
         value = $bindable(),
         extra = "",
         extraInput = "",
@@ -14,6 +16,8 @@
     } = $props<{
         number?: boolean;
         name?: string;
+		nameText?: string;
+		textClass?: string;
         value?: number | string;
         extra?: string;
         extraInput?: string;
@@ -54,6 +58,7 @@
 
 <div class={`flex items-center gap-2 ${extra}`}>
 	{#if number}
+		<p class={textClass}>{nameText}:</p>
 		<Button text="-" onClick={handleDecrement} />
 		<input
 			type="number"
@@ -71,6 +76,7 @@
 
 		<Button text="+" onClick={handleIncrement} />
 	{:else}
+		<p class={textClass}>{nameText}:</p>
 		<input
 			type="text"
 			class={`border rounded px-2 py-1 ${extraInput}`}

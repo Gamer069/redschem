@@ -83,12 +83,17 @@
 		// strip last /.*
 		goto(page.url.toString().replace(/\/[^/]*$/, ""));
 	};
+
+	const generate = () => {
+		goto("/generate");
+	}
 </script>
 
 
 <div class="relative min-h-screen p-3">
 	<div class="flex gap-4 float-left">
 		<Button onClick={back} icon text="arrow_back"/>
+		<Button onClick={generate} icon text="build"/>
 		<Button onClick={home} icon text="home"/>
 	</div>
 

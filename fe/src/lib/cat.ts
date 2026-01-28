@@ -1,6 +1,7 @@
 import subcategories from "../../../shared/categories.json";
 
-export { subcategories };
+export { subcategories, type Field };
+
 export const categories = Object.keys(subcategories) as (keyof typeof subcategories)[];
 
 import type { InferSelectModel } from "drizzle-orm";
@@ -12,6 +13,12 @@ export type Category = keyof typeof subcategories;
 
 export type Subcategory =
 	(typeof subcategories)[Category][number];
+
+interface Field {
+	name: string;
+	optional: boolean;
+	type: string;
+}
 
 /** Drizzle type */
 export type Schematic = InferSelectModel<typeof schematics>;
@@ -29,3 +36,4 @@ export const isSubcategory = (
 	return (subcategories[category] as readonly string[]).includes(value);
 };
 
+export const map = { authors: "Author" };

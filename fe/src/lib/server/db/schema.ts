@@ -15,4 +15,3 @@ export const schematics = pgTable('schematics', {
     notes: text('notes'),
     extra_data: text('extra_data'),
 });
-
